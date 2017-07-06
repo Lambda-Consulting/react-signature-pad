@@ -19,6 +19,12 @@ export default class SignaturePad extends React.Component {
     this.onBegin = this.props.onBegin;
   }
 
+  componentWillMount() {
+    if (this.props.setRef) {
+      this.props.setRef(this);
+    }
+  }
+
   componentDidMount() {
     this._canvas = this.refs.cv;
     this._ctx = this._canvas.getContext("2d");
